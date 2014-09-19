@@ -1,4 +1,14 @@
-#!/bin/bash -ex
+#!/bin/bash 
+
+# check the presence of domain and password parameters
+die () {
+    printf >&2 "$@"
+    exit 1
+}
+
+set +ex
+[ "$#" -eq 2 ] || die "2 argument required, $# provided.\narg1: domain\narg2: password\nInstallation cancelled !"
+
 
 export NISE_DOMAIN=$1
 export NISE_PASSWORD=$2
@@ -22,7 +32,10 @@ echo "######## FI-Content 2 PaaS started. ########"
 echo "############################################"
 
 echo "\nAdmin UI configuration..."
+sudo chmod +x ~/fc2-paas-installer/generated/admin_ui_uaa_config.sh
 ~/fc2-paas-installer/generated/admin_ui_uaa_config.sh
+
+sudo apt-get install -f -y --no-install-recommends git-core build-essential libssl-dev libsqlite3-dev openssl libpq-dev
 
 cd ~/admin-ui
 bundle install
