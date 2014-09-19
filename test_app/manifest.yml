@@ -1,0 +1,7 @@
+---
+applications:
+- name: hello
+  memory: 128M
+  instances: 1
+  host: hello-fi-content2
+  path: .

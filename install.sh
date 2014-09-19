@@ -46,5 +46,6 @@ echo "########### Web console started ############"
 echo "############################################"
 
 echo "FI-Content 2 PaaS is started !"
-echo "API endpoint: https://api."+$1
-echo "Credential: admin/"+$2
+echo "API endpoint: https://api."$1
+echo "Credential: admin/"$2
+echo "Admin Web Console: https://"$1":8070"
