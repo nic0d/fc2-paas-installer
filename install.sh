@@ -35,8 +35,6 @@ echo "\nAdmin UI configuration..."
 sudo chmod +x ~/fc2-paas-installer/generated/admin_ui_uaa_config.sh
 ~/fc2-paas-installer/generated/admin_ui_uaa_config.sh
 
-sudo apt-get install -f -y --no-install-recommends git-core build-essential libssl-dev libsqlite3-dev openssl libpq-dev
-
 cd ~/admin-ui
 bundle install
 ruby bin/admin &
