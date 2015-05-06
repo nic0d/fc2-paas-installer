@@ -3,7 +3,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <title>MIVOQ Web Client</title>
       <script>
-          var my_super_variable = '<%= tts_url %>';
+	var my_super_variable = '<%= tts_url %>';
+        if (my_super_variable == ''){alert('TTS Service not set, application will not work!');}
+
       </script>
       <script language="javascript" src="mary.js">
       </script>

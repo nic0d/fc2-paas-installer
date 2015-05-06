@@ -18,7 +18,8 @@ function ttsUrl() {
     return "";
   }
 }
-var ttsurl = ttsUrl();
+var ttsurl = ttsUrl(); // || 'static-address';
+
 // Create the web server
 var server = express();
 
@@ -27,12 +28,7 @@ server.set('view engine', 'ejs');
 server.use(express.static(__dirname + '/public'));
 
 server.get('/',function(req, res) {
-    res.render('index.ejs', {my_param: "toto",tts_url: ttsurl});
-});
-
-server.get('/speak',function(req, res) {
-    console.log("toto");
-    res.render('index.ejs', {my_param: "toto"});
+    res.render('index.ejs', {tts_url: ttsurl});
 });
 
 server.listen(process.env.VCAP_APP_PORT || 8080);
